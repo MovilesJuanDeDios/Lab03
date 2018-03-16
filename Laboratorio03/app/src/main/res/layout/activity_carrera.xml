@@ -22,10 +22,10 @@
 
     <include
         layout="@layout/content_carrera"
-        android:layout_height="177dp"
+        android:layout_height="514dp"
         app:layout_anchor="@+id/fab"
         app:layout_anchorGravity="left|top"
-        tools:layout_editor_absoluteY="390dp" />
+        tools:layout_editor_absoluteY="53dp" />
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
