@@ -54,7 +54,13 @@
         <activity
             android:name=".Usuario"
             android:label="@string/title_activity_usuario"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".AgregarAlumno" />
+        <activity android:name=".AgregarCarrera" />
+        <activity android:name=".AgregarProfesor" />
+        <activity android:name=".AgregarCurso" />
+        <activity android:name=".AgregarCiclo" />
+        <activity android:name=".AgregarGrupo"></activity>
     </application>
 
 </manifest>
