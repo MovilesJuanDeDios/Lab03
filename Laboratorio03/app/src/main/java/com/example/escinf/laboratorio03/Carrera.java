@@ -86,27 +86,6 @@ public class Carrera extends AppCompatActivity {
             }
         });
 
-        /*
-        Tabla tabla = new Tabla(this, (TableLayout)findViewById(R.id.tabla));
-        tabla.agregarCabecera(R.array.headerCarrera);
-
-            ArrayList<String> elementos = new ArrayList<String>();
-            elementos.add("Casilla [0]");
-            elementos.add("Casilla [1]");
-            tabla.agregarFilaTabla(elementos);
-*/
-
-
-        Tabla tabla = new TablaCarrera(this);
-        tabla.agregarCabecera(R.array.headerCarrera);
-       // for(int i = 0; i < 10; i++) {
-        acti
-            ArrayList<Carrera> carreras = new ArrayList<>();
-            carreras.add(new Carrera("EIF", "Ingenieria en Sistemas", "Titulo X"));
-
-            tabla.agregarFilaTabla(carreras);
-        // }
-
     }
 
 }

@@ -8,35 +8,8 @@
     tools:context="com.example.escinf.laboratorio03.Carrera"
     tools:showIn="@layout/activity_carrera">
 
-    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <TableRow android:layout_marginTop="20dip">
-
-            <EditText
-                android:id="@+id/idInput"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Nombre"
-                android:inputType="textPersonName" />
-
-            <EditText
-                android:id="@+id/codInput"
-                android:layout_height="wrap_content"
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:ems="10"
-                android:hint="Codigo"
-                android:inputType="textPersonName" />
-
-        </TableRow>
 
 
-    </TableLayout>
 
 
 </android.support.constraint.ConstraintLayout>
