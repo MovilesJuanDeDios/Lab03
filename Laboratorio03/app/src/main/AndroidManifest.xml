@@ -55,12 +55,30 @@
             android:name=".Usuario"
             android:label="@string/title_activity_usuario"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".AgregarAlumno" />
-        <activity android:name=".AgregarCarrera" />
-        <activity android:name=".AgregarProfesor" />
-        <activity android:name=".AgregarCurso" />
-        <activity android:name=".AgregarCiclo" />
-        <activity android:name=".AgregarGrupo"></activity>
+        <activity
+            android:name=".AgregarAlumno"
+            android:label="@string/title_activity_agregar_alumno"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AgregarCarrera"
+            android:label="@string/title_activity_agregar_carrera"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AgregarCiclo"
+            android:label="@string/title_activity_agregar_ciclo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AgregarCurso"
+            android:label="@string/title_activity_agregar_curso"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AgregarGrupo"
+            android:label="@string/title_activity_agregar_grupo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AgregarProfesor"
+            android:label="@string/title_activity_agregar_profesor"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>

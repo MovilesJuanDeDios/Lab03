@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.escinf.laboratorio03.Usuario"
-    tools:showIn="@layout/activity_usuario">
+    tools:context="com.example.escinf.laboratorio03.AgregarAlumno"
+    tools:showIn="@layout/activity_agregar_alumno">
 
     <LinearLayout
         android:orientation="vertical"
@@ -34,7 +34,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cedula_usuario" />
+                    android:id="@+id/cedula_alumno" />
             </TableRow>
 
             <TableRow
@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Clave"
+                    android:text="Nombre"
                     android:id="@+id/textView2" />
 
                 <EditText
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/clave_usuario" />
+                    android:id="@+id/nombre_alumno" />
             </TableRow>
 
             <TableRow
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Cambiar Clave"
+                    android:text="Telefono"
                     android:id="@+id/textView3" />
 
                 <EditText
@@ -74,10 +74,68 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/cambiar_clave" />
+                    android:id="@+id/telefono_alumno" />
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Email"
+                    android:id="@+id/textView4" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/email_alumno" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Fecha Nac"
+                    android:id="@+id/textView5" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/fechaNac_alumno" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Carrera"
+                    android:id="@+id/textView6" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/carrera" />
+            </TableRow>
 
         </TableLayout>
 
@@ -90,15 +148,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ok"
-                android:id="@+id/button_ok_usuario" />
+                android:text="Aceptar"
+                android:id="@+id/button_aceptar_alumno" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Cancelar"
-                android:id="@+id/button_cancelar_usuario" />
-
+                android:id="@+id/button_cancelar_alumno" />
         </LinearLayout>
     </LinearLayout>
 

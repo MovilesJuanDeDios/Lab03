@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.escinf.laboratorio03.Usuario"
-    tools:showIn="@layout/activity_usuario">
+    tools:context="com.example.escinf.laboratorio03.AgregarProfesor"
+    tools:showIn="@layout/activity_agregar_profesor">
 
     <LinearLayout
         android:orientation="vertical"
@@ -34,7 +34,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cedula_usuario" />
+                    android:id="@+id/cedula_profesor" />
             </TableRow>
 
             <TableRow
@@ -46,7 +46,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Clave"
+                    android:text="Nombre"
                     android:id="@+id/textView2" />
 
                 <EditText
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/clave_usuario" />
+                    android:id="@+id/nombre_profesor" />
             </TableRow>
 
             <TableRow
@@ -66,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Cambiar Clave"
+                    android:text="Telefono"
                     android:id="@+id/textView3" />
 
                 <EditText
@@ -74,10 +74,28 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/cambiar_clave" />
+                    android:id="@+id/telefono_profesor" />
             </TableRow>
 
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="10dp">
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textAppearance="?android:attr/textAppearanceLarge"
+                    android:text="Email"
+                    android:id="@+id/textView4" />
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"
+                    android:ems="10"
+                    android:id="@+id/email_profesor" />
+            </TableRow>
 
         </TableLayout>
 
@@ -90,15 +108,20 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Ok"
-                android:id="@+id/button_ok_usuario" />
+                android:text="Agregar"
+                android:id="@+id/button_agregar_profesor" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cancelar"
-                android:id="@+id/button_cancelar_usuario" />
+                android:text="Editar"
+                android:id="@+id/button_editar_profesor" />
 
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Eliminar"
+                android:id="@+id/button_eliminar_profesor" />
         </LinearLayout>
     </LinearLayout>
 
