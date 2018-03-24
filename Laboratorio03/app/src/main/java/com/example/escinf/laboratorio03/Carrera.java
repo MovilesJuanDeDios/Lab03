@@ -7,6 +7,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TableLayout;
 
 import java.util.ArrayList;
@@ -70,6 +72,10 @@ public class Carrera extends AppCompatActivity {
                 '}';
     }
 
+    /* ***************************************************************** */
+    String list[] = {"Andres","Jose","Giancarlo","Juan"};
+    ListView listView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,6 +91,10 @@ public class Carrera extends AppCompatActivity {
                 startActivity(intentf);
             }
         });
+
+        listView = (ListView) findViewById(R.id.Listview);
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+        listView.setAdapter(arrayAdapter);
 
     }
 

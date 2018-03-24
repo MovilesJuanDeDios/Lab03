@@ -8,6 +8,6 @@
     tools:context="com.example.escinf.laboratorio03.Profesor"
     tools:showIn="@layout/activity_profesor">
 
- 
+
 
 </android.support.constraint.ConstraintLayout>
