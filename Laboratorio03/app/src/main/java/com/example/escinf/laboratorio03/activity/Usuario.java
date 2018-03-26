@@ -10,7 +10,7 @@ import com.example.escinf.laboratorio03.R;
  * Created by slon on 25/3/2018.
  */
 
-public class UsuarioListView extends AppCompatActivity {
+public class Usuario extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

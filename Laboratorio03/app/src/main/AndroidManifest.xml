@@ -52,7 +52,7 @@
             android:label="@string/title_activity_grupo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".activity.UsuarioListView"
+            android:name=".activity.Usuario"
             android:label="@string/title_activity_usuario"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

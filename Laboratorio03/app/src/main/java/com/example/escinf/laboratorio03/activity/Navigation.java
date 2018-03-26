@@ -93,7 +93,7 @@ public class Navigation extends AppCompatActivity
             Intent intentf = new Intent(Navigation.this,GrupoListView.class);
             startActivity(intentf);
         } else if (id == R.id.usuario) {
-            Intent intentf = new Intent(Navigation.this,UsuarioListView.class);
+            Intent intentf = new Intent(Navigation.this,Usuario.class);
             startActivity(intentf);
         }
 
