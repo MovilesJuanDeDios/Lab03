@@ -28,12 +28,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Anno"
+                    android:text="Año"
                     android:id="@+id/textView1" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="number"
                     android:id="@+id/anno_ciclo" />
             </TableRow>
 
@@ -54,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="number"
                     android:ems="10"
-                    android:id="@+id/numero_curso" />
+                    android:id="@+id/numero_ciclo" />
             </TableRow>
 
             <TableRow
@@ -72,7 +73,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:ems="10"
                     android:id="@+id/fecha_inicio_ciclo" />
             </TableRow>
@@ -92,7 +93,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:ems="10"
                     android:id="@+id/fecha_finalizacion_ciclo" />
             </TableRow>
@@ -108,20 +109,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Agregar"
-                android:id="@+id/button_agregar_ciclo" />
+                android:text="Aceptar"
+                android:id="@+id/button_aceptar_ciclo" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Editar"
-                android:id="@+id/button_editar_ciclo" />
+                android:text="Cancelar"
+                android:id="@+id/button_cancelar_ciclo" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Eliminar"
-                android:id="@+id/button_eliminar_ciclo" />
         </LinearLayout>
     </LinearLayout>
 

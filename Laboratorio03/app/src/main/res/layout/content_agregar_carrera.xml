@@ -34,6 +34,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:inputType="text"
                     android:id="@+id/codigo_carrera" />
             </TableRow>
 
@@ -52,7 +53,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:ems="10"
                     android:id="@+id/nombre_carrera" />
             </TableRow>
@@ -72,29 +73,9 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:ems="10"
                     android:id="@+id/titulo_carrera" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Cursos"
-                    android:id="@+id/textView4" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/cursos_carrera" />
             </TableRow>
 
         </TableLayout>
@@ -108,20 +89,14 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Agregar"
-                android:id="@+id/button_agregar_carrera" />
+                android:text="Aceptar"
+                android:id="@+id/button_aceptar_carrera" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Editar"
-                android:id="@+id/button_editar_carrera" />
-
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Eliminar"
-                android:id="@+id/button_eliminar_carrera" />
+                android:text="Cancelar"
+                android:id="@+id/button_cancelar_carrera" />
         </LinearLayout>
     </LinearLayout>
 
