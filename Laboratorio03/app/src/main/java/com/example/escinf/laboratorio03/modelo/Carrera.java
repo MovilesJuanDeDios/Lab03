@@ -54,7 +54,7 @@ public class Carrera {
 
     @Override
     public String toString() {
-        return "Codigo: " + codigo + "\n" + "Titulo: " + titulo;
+        return "Nombre: " + nombre + '\n' + "Codigo: " + codigo + "\n" + "Titulo: " + titulo;
     }
 
 }

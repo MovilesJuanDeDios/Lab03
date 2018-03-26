@@ -71,7 +71,7 @@ public class Alumno {
 
     @Override
     public String toString() {
-        return "Cedula: " + cedula + '\n' + "Email: " + email;
+        return "Nombre: " + nombre + '\n' + "Cedula: " + cedula + '\n' + "Email: " + email;
     }
 
 }
