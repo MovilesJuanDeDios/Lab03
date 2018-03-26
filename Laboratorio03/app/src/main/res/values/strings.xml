@@ -28,7 +28,7 @@
     <string name="title_activity_usuario">Usuario</string>
 
 
-    <color name="black">#000000</color>
+    <color name="black">#990000</color>
     <string name="title_activity_add_alumno">add_alumno</string>
     <string name="title_activity_add_carrera">add_carrera</string>
     <string name="title_activity_add_ciclo">add_ciclo</string>
