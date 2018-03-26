@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string-array name="headerProfesor">
-        <item>Nombre</item>
-        <item>Cedula</item>
-    </string-array>
-</resources>

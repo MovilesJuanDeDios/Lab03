@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.escinf.laboratorio03.AgregarCurso"
+    tools:context="com.example.escinf.laboratorio03.activity.AgregarCurso"
     tools:showIn="@layout/activity_agregar_curso">
 
     <LinearLayout
@@ -52,7 +52,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:ems="10"
                     android:id="@+id/nombre_curso" />
             </TableRow>
@@ -105,23 +105,18 @@
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal">
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Agregar"
-                android:id="@+id/button_agregar_curso" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Editar"
-                android:id="@+id/button_editar_curso" />
+                android:text="Aceptar"
+                android:id="@+id/button_aceptar_curso" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Eliminar"
-                android:id="@+id/button_eliminar_curso" />
+                android:text="Cancelar"
+                android:id="@+id/button_cancelar_curso" />
         </LinearLayout>
     </LinearLayout>
 

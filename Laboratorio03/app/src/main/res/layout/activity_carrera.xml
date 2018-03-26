@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.escinf.laboratorio03.Carrera">
+    tools:context="com.example.escinf.laboratorio03.activity.CarreraListView">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -20,15 +20,10 @@
 
     </android.support.design.widget.AppBarLayout>
 
-    <include
-        layout="@layout/content_carrera"
-        android:layout_height="514dp"
-        app:layout_anchor="@+id/fab"
-        app:layout_anchorGravity="left|top"
-        tools:layout_editor_absoluteY="53dp" />
+    <include layout="@layout/content_carrera" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
+        android:id="@+id/fab_carrera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"

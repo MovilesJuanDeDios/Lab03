@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,59 +24,59 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Navigation"
+            android:name=".activity.Navigation"
             android:label="@string/title_activity_navigation"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Carrera"
+            android:name=".activity.CarreraListView"
             android:label="@string/title_activity_carrera"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Curso"
+            android:name=".activity.CursoListView"
             android:label="@string/title_activity_curso"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Profesor"
+            android:name=".activity.ProfesorListView"
             android:label="@string/title_activity_profesor"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Alumno"
+            android:name=".activity.AlumnoListView"
             android:label="@string/title_activity_alumno"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Ciclo"
+            android:name=".activity.CicloListView"
             android:label="@string/title_activity_ciclo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Grupo"
+            android:name=".activity.GrupoListView"
             android:label="@string/title_activity_grupo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Usuario"
+            android:name=".activity.UsuarioListView"
             android:label="@string/title_activity_usuario"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregarAlumno"
+            android:name=".activity.AgregarAlumno"
             android:label="@string/title_activity_agregar_alumno"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregarCarrera"
+            android:name=".activity.AgregarCarrera"
             android:label="@string/title_activity_agregar_carrera"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregarCiclo"
+            android:name=".activity.AgregarCiclo"
             android:label="@string/title_activity_agregar_ciclo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregarCurso"
+            android:name=".activity.AgregarCurso"
             android:label="@string/title_activity_agregar_curso"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregarGrupo"
+            android:name=".activity.AgregarGrupo"
             android:label="@string/title_activity_agregar_grupo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AgregarProfesor"
+            android:name=".activity.AgregarProfesor"
             android:label="@string/title_activity_agregar_profesor"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>
