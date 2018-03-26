@@ -34,7 +34,8 @@
                 <EditText
                     android:id="@+id/cedula_alumno"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_height="wrap_content"
+                    android:inputType="text"/>
             </TableRow>
 
             <TableRow
@@ -54,7 +55,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="text" />
             </TableRow>
 
             <TableRow
@@ -94,7 +95,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="textEmailAddress" />
             </TableRow>
 
             <TableRow

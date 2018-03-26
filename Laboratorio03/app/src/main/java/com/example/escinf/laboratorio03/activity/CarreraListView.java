@@ -10,6 +10,9 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
+import android.widget.ListView;
+
+
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
 import com.baoyz.swipemenulistview.SwipeMenuItem;
@@ -33,7 +36,9 @@ public class CarreraListView extends AppCompatActivity {
         setContentView(R.layout.activity_carrera);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
         listview = (SwipeMenuListView) findViewById(R.id.lista_carreras);
+
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_carrera);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -107,6 +112,21 @@ public class CarreraListView extends AppCompatActivity {
         carrera.setTitulo(getIntent().getStringExtra("titulo"));
         if (carrera.getNombre() != null)
             Data.listaCarrera.add(carrera);
+
+
+        add();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCarrera);
+        listview.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void add(){
+        Carrera carrera = new Carrera("EIF","Informatica","Bachillerato");
+        Carrera carrera2 = new Carrera("MAT","Matematica","Bachillerato");
+        Carrera carrera3 = new Carrera("LIX","Ingles","Bachillerato");
+        Data.listaCarrera.add(carrera);
+        Data.listaCarrera.add(carrera2);
+        Data.listaCarrera.add(carrera3);
 
     }
 }

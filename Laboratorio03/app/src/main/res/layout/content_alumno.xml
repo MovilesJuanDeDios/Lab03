@@ -56,7 +56,7 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <com.baoyz.swipemenulistview.SwipeMenuListView
-            android:id="@+id/lista_profesores"
+            android:id="@+id/lista_alumnos"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="@color/black"
