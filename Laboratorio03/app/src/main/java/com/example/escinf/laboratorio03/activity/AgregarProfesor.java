@@ -27,6 +27,8 @@ public class AgregarProfesor extends AppCompatActivity {
 
         agregar();
         cancelar();
+        if(getIntent().getBooleanExtra("edit",false))
+            editData();
     }
 
     private void agregar() {
@@ -37,6 +39,7 @@ public class AgregarProfesor extends AppCompatActivity {
             private String cedula;
             private String telefono;
             private String email;
+            private int position;
 
             @Override
             public void onClick(View v) {
@@ -44,6 +47,7 @@ public class AgregarProfesor extends AppCompatActivity {
                 cedula = ((EditText) findViewById(R.id.cedula_profesor)).getText().toString();
                 telefono = ((EditText) findViewById(R.id.telefono_profesor)).getText().toString();
                 email = ((EditText) findViewById(R.id.email_profesor)).getText().toString();
+                position = getIntent().getIntExtra("position",-1);
 
                 Intent intent = new Intent(AgregarProfesor.this, ProfesorListView.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -51,6 +55,7 @@ public class AgregarProfesor extends AppCompatActivity {
                 intent.putExtra("cedula", cedula);
                 intent.putExtra("telefono", telefono);
                 intent.putExtra("email", email);
+                intent.putExtra("position", position);
                 //startActivityIfNeeded(intent, 0);
                 startActivity(intent);
                 finish();
@@ -70,6 +75,7 @@ public class AgregarProfesor extends AppCompatActivity {
         });
     }
 
+
     private void editar() {
         Intent intent = getIntent();
         Profesor profesor = (Profesor) intent.getSerializableExtra("profesor");
@@ -80,7 +86,15 @@ public class AgregarProfesor extends AppCompatActivity {
         EditText em = (EditText) findViewById(R.id.email_profesor);
 
         ced.setText(profesor.getCedula());
+    }
 
+
+    public void editData() {
+        ((EditText) findViewById(R.id.nombre_profesor)).setText(getIntent().getStringExtra("nombre"));
+        ((EditText) findViewById(R.id.cedula_profesor)).setText(getIntent().getStringExtra("cedula"));
+        ((EditText) findViewById(R.id.cedula_profesor)).setEnabled(false);
+        ((EditText) findViewById(R.id.telefono_profesor)).setText(getIntent().getStringExtra("telefono"));
+        ((EditText) findViewById(R.id.email_profesor)).setText(getIntent().getStringExtra("email"));
     }
 
 }

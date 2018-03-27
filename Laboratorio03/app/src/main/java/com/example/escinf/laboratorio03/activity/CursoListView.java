@@ -93,9 +93,29 @@ public class CursoListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                String codigo;
+                String nombre;
+                int creditos;
+                int horas;
+                Boolean edit;
+
                 switch (index) {
                     case 0:
-                        // accion editar
+                        codigo = Data.listaCurso.get(position).getCodigo();
+                        nombre = Data.listaCurso.get(position).getNombre();
+                        creditos = Data.listaCurso.get(position).getCreditos();
+                        horas = Data.listaCurso.get(position).getHorasSemanales();
+                        edit = true;
+
+                        Intent intent = new Intent(CursoListView.this, AgregarCurso.class);
+                        intent.putExtra("nombre", nombre);
+                        intent.putExtra("codigo", codigo);
+                        intent.putExtra("creditos", creditos);
+                        intent.putExtra("horas", horas);
+                        intent.putExtra("edit", edit);
+                        intent.putExtra("position", position);
+                        startActivity(intent);
+                        finish();
                         break;
                     case 1:
                         Data.listaCurso.remove(position);
@@ -116,6 +136,9 @@ public class CursoListView extends AppCompatActivity {
         curso.setCodigo(getIntent().getStringExtra("codigo"));
         curso.setCreditos(getIntent().getIntExtra("creditos", 0));
         curso.setHorasSemanales(getIntent().getIntExtra("horasSemanales", 0));
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            Data.listaCurso.remove(position);
         if (curso.getNombre() != null)
             Data.listaCurso.add(curso);
     }

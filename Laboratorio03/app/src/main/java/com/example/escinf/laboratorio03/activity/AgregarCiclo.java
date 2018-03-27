@@ -25,6 +25,8 @@ public class AgregarCiclo extends AppCompatActivity {
 
         agregar();
         cancelar();
+        if(getIntent().getBooleanExtra("edit",false))
+            editData();
     }
 
     private void agregar() {
@@ -35,6 +37,7 @@ public class AgregarCiclo extends AppCompatActivity {
             private int numero;
             private String fechaInicio;
             private String fechaFin;
+            private int position;
 
             @Override
             public void onClick(View v) {
@@ -46,6 +49,7 @@ public class AgregarCiclo extends AppCompatActivity {
                 }
                 fechaInicio = ((EditText) findViewById(R.id.fecha_inicio_ciclo)).getText().toString();
                 fechaFin = ((EditText) findViewById(R.id.fecha_finalizacion_ciclo)).getText().toString();
+                position = getIntent().getIntExtra("position",-1);
 
 
                 Intent intent = new Intent(AgregarCiclo.this, CicloListView.class);
@@ -54,6 +58,7 @@ public class AgregarCiclo extends AppCompatActivity {
                 intent.putExtra("numero", numero);
                 intent.putExtra("fechaInicio", fechaInicio);
                 intent.putExtra("fechaFin", fechaFin);
+                intent.putExtra("position", position);
                 //startActivityIfNeeded(intent, 0);
                 startActivity(intent);
                 finish();
@@ -73,6 +78,13 @@ public class AgregarCiclo extends AppCompatActivity {
         });
     }
 
-
+    public void editData() {
+        ((EditText)findViewById(R.id.anno_ciclo)).setText(Integer.toString(getIntent().getIntExtra("anno",-1)));
+        ((EditText)findViewById(R.id.anno_ciclo)).setEnabled(false);
+        ((EditText)findViewById(R.id.numero_ciclo)).setText(Integer.toString(getIntent().getIntExtra("numero",-1)));
+        ((EditText)findViewById(R.id.numero_ciclo)).setEnabled(false);
+        ((EditText)findViewById(R.id.fecha_inicio_ciclo)).setText(getIntent().getStringExtra("fechaInicio"));
+        ((EditText)findViewById(R.id.fecha_finalizacion_ciclo)).setText(getIntent().getStringExtra("fechaFin"));
+    }
 
 }
