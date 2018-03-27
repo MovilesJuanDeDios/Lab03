@@ -42,7 +42,6 @@ public class CicloListView extends AppCompatActivity {
 
         listview = (SwipeMenuListView) findViewById(R.id.lista_ciclos);
 
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_ciclo);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -98,7 +97,7 @@ public class CicloListView extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 int anno;
-                int numero;
+                String numero;
                 String fechaInicio;
                 String fechaFin;
                 Boolean edit;
@@ -137,7 +136,7 @@ public class CicloListView extends AppCompatActivity {
     public void addData() {
         Ciclo ciclo = new Ciclo();
         ciclo.setAnno(getIntent().getIntExtra("anno", 0));
-        ciclo.setNumero(getIntent().getIntExtra("numero", 0));
+        ciclo.setNumero(getIntent().getStringExtra("numero"));
         ciclo.setFechaInicio(getIntent().getStringExtra("fechaInicio"));
         ciclo.setFechaFin(getIntent().getStringExtra("fechaFin"));
         int position = getIntent().getIntExtra("position", -1);
@@ -148,10 +147,10 @@ public class CicloListView extends AppCompatActivity {
     }
 
     public void add(){
-        Ciclo ciclo = new Ciclo(2014,1,"07/02/2014","20/06/2017");
-        Ciclo ciclo2 = new Ciclo(2015,2,"24/07/2015","18/11/2015");
-        Ciclo ciclo3 = new Ciclo(2016,1,"05/02/2016","15/06/2016");
-        Ciclo ciclo4 = new Ciclo(2017,2,"27/07/2017","15/11/2017");
+        Ciclo ciclo = new Ciclo(2014,"Primero","07/02/2014","20/06/2017");
+        Ciclo ciclo2 = new Ciclo(2015,"Segundo","24/07/2015","18/11/2015");
+        Ciclo ciclo3 = new Ciclo(2016,"Primero","05/02/2016","15/06/2016");
+        Ciclo ciclo4 = new Ciclo(2017,"Segundo","27/07/2017","15/11/2017");
         Data.listaCiclo.add(ciclo);
         Data.listaCiclo.add(ciclo2);
         Data.listaCiclo.add(ciclo3);

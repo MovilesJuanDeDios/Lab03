@@ -47,15 +47,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Numero"
+                    android:text="No.de Ciclo"
                     android:id="@+id/textView2" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/numero_ciclo" />
+                <Spinner
+                    android:id="@+id/spinner_numero_ciclo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:entries="@array/numero_ciclos"/>
             </TableRow>
 
             <TableRow
@@ -67,7 +66,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Fecha Inicio"
+                    android:text="Fecha Inicial"
                     android:id="@+id/textView3" />
 
                 <EditText
@@ -87,7 +86,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Fecha Finalizacion"
+                    android:text="Fecha Final"
                     android:id="@+id/textView4" />
 
                 <EditText

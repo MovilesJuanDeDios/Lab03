@@ -4,31 +4,31 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/carrera"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_school_black_24dp"
             android:title="Carreras" />
         <item
             android:id="@+id/curso"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_book_icon"
             android:title="Cursos" />
         <item
             android:id="@+id/profesor"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_img_profesor"
             android:title="Profesores" />
         <item
             android:id="@+id/alumno"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_estudiante"
             android:title="Alumnos" />
         <item
             android:id="@+id/ciclo"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_ciclo"
             android:title="Ciclos" />
         <item
             android:id="@+id/grupo"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_grupos"
             android:title="Grupos" />
         <item
             android:id="@+id/usuario"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_person_black_24dp"
             android:title="Usuario" />
     </group>
 
