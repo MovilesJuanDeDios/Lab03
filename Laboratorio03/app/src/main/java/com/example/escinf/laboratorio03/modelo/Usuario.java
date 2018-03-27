@@ -7,13 +7,15 @@ public class Usuario implements Serializable {
 
     private String cedula;
     private String clave;
+    private int rol;
 
     public Usuario() {
     }
 
-    public Usuario(String cedula, String clave) {
+    public Usuario(String cedula, String clave, int rol) {
         this.cedula = cedula;
         this.clave = clave;
+        this.rol = rol;
     }
 
     public String getCedula() {
@@ -32,5 +34,8 @@ public class Usuario implements Serializable {
         this.clave = clave;
     }
 
+    public int getRol() { return rol; }
+
+    public void setRol(int rol) { this.rol = rol;  }
 
 }

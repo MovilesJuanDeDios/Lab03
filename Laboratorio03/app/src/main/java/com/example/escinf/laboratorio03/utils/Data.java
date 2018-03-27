@@ -5,6 +5,7 @@ import com.example.escinf.laboratorio03.modelo.Carrera;
 import com.example.escinf.laboratorio03.modelo.Ciclo;
 import com.example.escinf.laboratorio03.modelo.Curso;
 import com.example.escinf.laboratorio03.modelo.Profesor;
+import com.example.escinf.laboratorio03.modelo.Usuario;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,6 +15,8 @@ import java.util.List;
  */
 
 public class Data {
+
+    public static final List<Usuario> listaUsuarios = new ArrayList<>();
 
     public static final List<Profesor> listaProf = new ArrayList<>();
 

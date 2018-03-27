@@ -30,7 +30,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.escinf.laboratorio03.modelo.Usuario;
 import com.example.escinf.laboratorio03.R;
+import com.example.escinf.laboratorio03.utils.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,8 +67,21 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mProgressView;
     private View mLoginFormView;
 
+    /* *************************** LISTA DE USUARIOS QUEMADO EN EL APP  *************************** */
+    private void add(){
+        Usuario user = new Usuario("admin@gmail.com","12345",1);
+        Usuario user2 = new Usuario("matriculador@gmail.com","12345",2);
+        Usuario user3 = new Usuario("profe@gmail.com","12345",3);
+        Usuario user4 = new Usuario("alumno@gmail.com","12345",4);
+        Data.listaUsuarios.add(user);
+        Data.listaUsuarios.add(user2);
+        Data.listaUsuarios.add(user3);
+        Data.listaUsuarios.add(user4);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        add();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.
@@ -163,13 +178,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         boolean cancel = false;
         View focusView = null;
 
-        // Check for a valid password, if the user entered one.
-        if (!TextUtils.isEmpty(password) && !isPasswordValid(password)) {
-            mPasswordView.setError(getString(R.string.error_invalid_password));
-            focusView = mPasswordView;
-            cancel = true;
-        }
-
         // Check for a valid email address.
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
@@ -178,6 +186,18 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         } else if (!isEmailValid(email)) {
             mEmailView.setError(getString(R.string.error_invalid_email));
             focusView = mEmailView;
+            cancel = true;
+        }
+
+        // Check for a valid password, if the user entered one.
+        if (TextUtils.isEmpty(password)) {
+            mPasswordView.setError(getString(R.string.error_field_required));
+            focusView = mPasswordView;
+            cancel = true;
+        }
+        else if (!isPasswordValid(password)){
+            mPasswordView.setError(getString(R.string.error_incorrect_password));
+            focusView = mPasswordView;
             cancel = true;
         }
 
@@ -191,19 +211,27 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(true);
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
+            Intent intentf = new Intent(LoginActivity.this,Navigation.class);
+            startActivity(intentf);
         }
-        Intent intentf = new Intent(LoginActivity.this,Navigation.class);
-        startActivity(intentf);
     }
 
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        for (Usuario element:Data.listaUsuarios) {
+            if(element.getCedula().equals(email) && email.contains("@"))
+                return true;
+        }
+        return false;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        for (Usuario element:Data.listaUsuarios) {
+            if(element.getClave().equals(password) && password.length() > 4)
+                return true;
+        }
+        return false;
     }
 
     /**
