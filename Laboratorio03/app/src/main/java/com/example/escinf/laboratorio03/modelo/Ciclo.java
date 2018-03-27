@@ -1,7 +1,9 @@
 package com.example.escinf.laboratorio03.modelo;
 
 
-public class Ciclo {
+import java.io.Serializable;
+
+public class Ciclo implements Serializable {
 
     private int anno;
     private int numero;

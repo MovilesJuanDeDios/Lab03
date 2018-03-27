@@ -17,6 +17,7 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Carrera;
+import com.example.escinf.laboratorio03.utils.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +30,6 @@ public class CarreraListView extends AppCompatActivity {
 
     ArrayAdapter<Carrera> adapter;
     SwipeMenuListView listview;
-
-    public static final List<Carrera> listaCarrera = new ArrayList<>();
 
     private static boolean added = false;
 
@@ -59,7 +58,7 @@ public class CarreraListView extends AppCompatActivity {
             added = true;
         }
         addData();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaCarrera);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCarrera);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -103,7 +102,7 @@ public class CarreraListView extends AppCompatActivity {
                         // accion editar
                         break;
                     case 1:
-                        listaCarrera.remove(position);
+                        Data.listaCarrera.remove(position);
                         adapter.notifyDataSetChanged();
                         break;
                 }
@@ -121,16 +120,16 @@ public class CarreraListView extends AppCompatActivity {
         carrera.setCodigo(getIntent().getStringExtra("codigo"));
         carrera.setTitulo(getIntent().getStringExtra("titulo"));
         if (carrera.getNombre() != null)
-            listaCarrera.add(carrera);
+            Data.listaCarrera.add(carrera);
     }
 
     public void add(){
         Carrera carrera = new Carrera("EIF","Informatica","Bachillerato");
         Carrera carrera2 = new Carrera("MAT","Matematica","Bachillerato");
         Carrera carrera3 = new Carrera("LIX","Ingles","Bachillerato");
-        listaCarrera.add(carrera);
-        listaCarrera.add(carrera2);
-        listaCarrera.add(carrera3);
+        Data.listaCarrera.add(carrera);
+        Data.listaCarrera.add(carrera2);
+        Data.listaCarrera.add(carrera3);
 
     }
 }

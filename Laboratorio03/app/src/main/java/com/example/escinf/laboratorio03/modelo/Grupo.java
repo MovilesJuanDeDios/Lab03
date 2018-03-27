@@ -1,9 +1,10 @@
 package com.example.escinf.laboratorio03.modelo;
 
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Grupo {
+public class Grupo implements Serializable {
 
     private Ciclo ciclo;
     private int numero;

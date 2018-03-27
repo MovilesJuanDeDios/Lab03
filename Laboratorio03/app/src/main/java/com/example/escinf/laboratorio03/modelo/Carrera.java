@@ -1,9 +1,10 @@
 package com.example.escinf.laboratorio03.modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Carrera {
+public class Carrera implements Serializable {
 
     private String codigo;
     private String nombre;

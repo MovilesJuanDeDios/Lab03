@@ -1,7 +1,9 @@
 package com.example.escinf.laboratorio03.modelo;
 
 
-public class Curso {
+import java.io.Serializable;
+
+public class Curso implements Serializable {
 
     private String codigo;
     private String nombre;

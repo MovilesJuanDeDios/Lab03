@@ -31,10 +31,10 @@
                     android:text="Ciclo"
                     android:id="@+id/textView1" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/ciclo_grupo" />
+                <Spinner
+                    android:id="@+id/spinner_ciclo_grupo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </TableRow>
 
             <TableRow
@@ -49,12 +49,10 @@
                     android:text="Curso"
                     android:id="@+id/textView2" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/curso_grupo" />
+                <Spinner
+                    android:id="@+id/spinner_curso_grupo"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </TableRow>
 
             <TableRow
@@ -92,7 +90,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="text"
                     android:ems="10"
                     android:id="@+id/horario_grupo" />
             </TableRow>
@@ -109,34 +107,11 @@
                     android:text="Profesor"
                     android:id="@+id/textView5" />
 
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/profesor_grupo" />
+                <Spinner
+                    android:id="@+id/spinner_asignar_profesor"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="10dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Estudiantes"
-                    android:id="@+id/textView6" />
-
-                <EditText
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:ems="10"
-                    android:id="@+id/lista_estudiantes" />
-            </TableRow>
-
 
         </TableLayout>
 
@@ -149,20 +124,15 @@
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Agregar"
-                android:id="@+id/button_agregar_grupo" />
+                android:text="Aceptar"
+                android:id="@+id/button_aceptar_grupo" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Editar"
-                android:id="@+id/button_editar_grupo" />
+                android:text="Cancelar"
+                android:id="@+id/button_cancelar_grupo" />
 
-            <Button
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Eliminar"
-                android:id="@+id/button_eliminar_grupo" />
         </LinearLayout>
     </LinearLayout>
 

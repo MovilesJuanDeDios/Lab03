@@ -17,6 +17,7 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Profesor;
+import com.example.escinf.laboratorio03.utils.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,8 +31,6 @@ public class ProfesorListView extends AppCompatActivity {
 
     ArrayAdapter<Profesor> adapter;
     SwipeMenuListView listview;
-
-    public static final List<Profesor> listaProf = new ArrayList<>();
 
     private static boolean added = false;
 
@@ -59,7 +58,7 @@ public class ProfesorListView extends AppCompatActivity {
             added = true;
         }
         addData();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaProf);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaProf);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -101,11 +100,13 @@ public class ProfesorListView extends AppCompatActivity {
                 switch (index) {
                     case 0:
                         Intent intent = new Intent(ProfesorListView.this, AgregarProfesor.class);
+                        Profesor profesor = (Profesor)listview.getItemAtPosition(position);
+                        intent.putExtra("profesor", profesor);
                         startActivity(intent);
                         finish();
                         break;
                     case 1:
-                        listaProf.remove(position);
+                        Data.listaProf.remove(position);
                         adapter.notifyDataSetChanged();
                         break;
                 }
@@ -123,7 +124,7 @@ public class ProfesorListView extends AppCompatActivity {
         profesor.setTelefono(getIntent().getStringExtra("telefono"));
         profesor.setEmail(getIntent().getStringExtra("email"));
         if (profesor.getCedula() != null)
-            listaProf.add(profesor);
+            Data.listaProf.add(profesor);
     }
 
     public void add(){
@@ -131,10 +132,10 @@ public class ProfesorListView extends AppCompatActivity {
         Profesor profesor2 = new Profesor("159","Carlos","83264585","carlos@gmail.com");
         Profesor profesor3 = new Profesor("852","Johnny","86593457","johnny@gmail.com");
         Profesor profesor4 = new Profesor("486","Jose","85472163","jose@gmail.com");
-        listaProf.add(profesor);
-        listaProf.add(profesor2);
-        listaProf.add(profesor3);
-        listaProf.add(profesor4);
+        Data.listaProf.add(profesor);
+        Data.listaProf.add(profesor2);
+        Data.listaProf.add(profesor3);
+        Data.listaProf.add(profesor4);
     }
 
 

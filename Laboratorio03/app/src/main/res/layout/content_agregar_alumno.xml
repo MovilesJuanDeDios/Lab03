@@ -132,7 +132,7 @@
                     android:textAppearance="?android:attr/textAppearanceLarge" />
 
                 <Spinner
-                    android:id="@+id/spinner_agregar_alumno"
+                    android:id="@+id/spinner_carrera_alumno"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent" />
 

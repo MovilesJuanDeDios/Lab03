@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Profesor;
@@ -67,6 +68,19 @@ public class AgregarProfesor extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void editar() {
+        Intent intent = getIntent();
+        Profesor profesor = (Profesor) intent.getSerializableExtra("profesor");
+
+        EditText ced = (EditText) findViewById(R.id.cedula_profesor);
+        EditText nom = (EditText) findViewById(R.id.nombre_profesor);
+        EditText tel = (EditText) findViewById(R.id.telefono_profesor);
+        EditText em = (EditText) findViewById(R.id.email_profesor);
+
+        ced.setText(profesor.getCedula());
+
     }
 
 }

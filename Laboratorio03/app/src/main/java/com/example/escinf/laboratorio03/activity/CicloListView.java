@@ -16,6 +16,7 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Ciclo;
+import com.example.escinf.laboratorio03.utils.Data;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,8 +30,6 @@ public class CicloListView extends AppCompatActivity {
 
     ArrayAdapter<Ciclo> adapter;
     SwipeMenuListView listview;
-
-    public static final List<Ciclo> listaCiclo = new ArrayList<>();
 
     private static boolean added = false;
 
@@ -59,7 +58,7 @@ public class CicloListView extends AppCompatActivity {
             added = true;
         }
         addData();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaCiclo);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCiclo);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -103,7 +102,7 @@ public class CicloListView extends AppCompatActivity {
                         // accion editar
                         break;
                     case 1:
-                        listaCiclo.remove(position);
+                        Data.listaCiclo.remove(position);
                         adapter.notifyDataSetChanged();
                         break;
                 }
@@ -122,7 +121,7 @@ public class CicloListView extends AppCompatActivity {
         ciclo.setFechaInicio(getIntent().getStringExtra("fechaInicio"));
         ciclo.setFechaFin(getIntent().getStringExtra("fechaFin"));
         if (ciclo.getFechaInicio() != null)
-            listaCiclo.add(ciclo);
+            Data.listaCiclo.add(ciclo);
     }
 
     public void add(){
@@ -130,10 +129,10 @@ public class CicloListView extends AppCompatActivity {
         Ciclo ciclo2 = new Ciclo(2015,2,"24/07/2015","18/11/2015");
         Ciclo ciclo3 = new Ciclo(2016,1,"05/02/2016","15/06/2016");
         Ciclo ciclo4 = new Ciclo(2017,2,"27/07/2017","15/11/2017");
-        listaCiclo.add(ciclo);
-        listaCiclo.add(ciclo2);
-        listaCiclo.add(ciclo3);
-        listaCiclo.add(ciclo4);
+        Data.listaCiclo.add(ciclo);
+        Data.listaCiclo.add(ciclo2);
+        Data.listaCiclo.add(ciclo3);
+        Data.listaCiclo.add(ciclo4);
 
     }
 }

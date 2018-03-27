@@ -1,7 +1,9 @@
 package com.example.escinf.laboratorio03.modelo;
 
 
-public class Usuario {
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
 
     private String cedula;
     private String clave;
