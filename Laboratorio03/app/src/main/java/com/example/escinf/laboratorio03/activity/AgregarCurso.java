@@ -25,6 +25,8 @@ public class AgregarCurso extends AppCompatActivity {
 
         agregar();
         cancelar();
+        if(getIntent().getBooleanExtra("edit",false))
+            editData();
     }
 
     private void agregar() {
@@ -35,6 +37,7 @@ public class AgregarCurso extends AppCompatActivity {
             private String codigo;
             private int creditos;
             private int horasSemanales;
+            private int position;
 
             @Override
             public void onClick(View v) {
@@ -44,6 +47,7 @@ public class AgregarCurso extends AppCompatActivity {
                     creditos = Integer.parseInt(((EditText) findViewById(R.id.creditos_curso)).getText().toString());
                     horasSemanales = Integer.parseInt(((EditText) findViewById(R.id.horas_semanales)).getText().toString());
                 } catch (NumberFormatException e) { }
+                position = getIntent().getIntExtra("position",-1);
 
                 Intent intent = new Intent(AgregarCurso.this, CursoListView.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -51,6 +55,7 @@ public class AgregarCurso extends AppCompatActivity {
                 intent.putExtra("codigo", codigo);
                 intent.putExtra("creditos", creditos);
                 intent.putExtra("horasSemanales", horasSemanales);
+                intent.putExtra("position", position);
                 //startActivityIfNeeded(intent, 0);
                 startActivity(intent);
                 finish();
@@ -70,5 +75,12 @@ public class AgregarCurso extends AppCompatActivity {
         });
     }
 
+    public void editData() {
+        ((EditText)findViewById(R.id.nombre_curso)).setText(getIntent().getStringExtra("nombre"));
+        ((EditText)findViewById(R.id.codigo_curso)).setText(getIntent().getStringExtra("codigo"));
+        ((EditText)findViewById(R.id.codigo_curso)).setEnabled(false);
+        ((EditText)findViewById(R.id.creditos_curso)).setText(Integer.toString(getIntent().getIntExtra("creditos",0)));
+        ((EditText)findViewById(R.id.horas_semanales)).setText(Integer.toString(getIntent().getIntExtra("horasSemanales",0)));
+    }
 
 }

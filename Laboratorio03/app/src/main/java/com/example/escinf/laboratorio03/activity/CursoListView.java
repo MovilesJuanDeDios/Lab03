@@ -94,9 +94,29 @@ public class CursoListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                String codigo;
+                String nombre;
+                int creditos;
+                int horas;
+                Boolean edit;
+
                 switch (index) {
                     case 0:
-                        // accion editar
+                        codigo = listaCurso.get(position).getCodigo();
+                        nombre = listaCurso.get(position).getNombre();
+                        creditos = listaCurso.get(position).getCreditos();
+                        horas = listaCurso.get(position).getHorasSemanales();
+                        edit = true;
+
+                        Intent intent = new Intent(CursoListView.this, AgregarCurso.class);
+                        intent.putExtra("nombre", nombre);
+                        intent.putExtra("codigo", codigo);
+                        intent.putExtra("creditos", creditos);
+                        intent.putExtra("horas", horas);
+                        intent.putExtra("edit", edit);
+                        intent.putExtra("position", position);
+                        startActivity(intent);
+                        finish();
                         break;
                     case 1:
                         listaCurso.remove(position);
@@ -117,6 +137,9 @@ public class CursoListView extends AppCompatActivity {
         curso.setCodigo(getIntent().getStringExtra("codigo"));
         curso.setCreditos(getIntent().getIntExtra("creditos", 0));
         curso.setHorasSemanales(getIntent().getIntExtra("horasSemanales", 0));
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            listaCurso.remove(position);
         if (curso.getNombre() != null)
             listaCurso.add(curso);
     }

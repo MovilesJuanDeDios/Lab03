@@ -98,9 +98,27 @@ public class ProfesorListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                String nombre;
+                String cedula;
+                String telefono;
+                String email;
+                Boolean edit;
+
                 switch (index) {
                     case 0:
+                        nombre = listaProf.get(position).getNombre();
+                        cedula = listaProf.get(position).getCedula();
+                        telefono = listaProf.get(position).getTelefono();
+                        email = listaProf.get(position).getEmail();
+                        edit = true;
+
                         Intent intent = new Intent(ProfesorListView.this, AgregarProfesor.class);
+                        intent.putExtra("nombre", nombre);
+                        intent.putExtra("cedula", cedula);
+                        intent.putExtra("telefono", telefono);
+                        intent.putExtra("email", email);
+                        intent.putExtra("edit", edit);
+                        intent.putExtra("position", position);
                         startActivity(intent);
                         finish();
                         break;
@@ -122,6 +140,9 @@ public class ProfesorListView extends AppCompatActivity {
         profesor.setCedula(getIntent().getStringExtra("cedula"));
         profesor.setTelefono(getIntent().getStringExtra("telefono"));
         profesor.setEmail(getIntent().getStringExtra("email"));
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            listaProf.remove(position);
         if (profesor.getCedula() != null)
             listaProf.add(profesor);
     }

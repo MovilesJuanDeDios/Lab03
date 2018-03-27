@@ -27,7 +27,8 @@ public class AgregarCarrera extends AppCompatActivity {
 
         agregar();
         cancelar();
-
+        if(getIntent().getBooleanExtra("edit",false))
+            editData();
     }
 
     private void agregar() {
@@ -37,18 +38,21 @@ public class AgregarCarrera extends AppCompatActivity {
             private String nombre;
             private String codigo;
             private String titulo;
+            private int position;
 
             @Override
             public void onClick(View v) {
                 nombre = ((EditText) findViewById(R.id.nombre_carrera)).getText().toString();
                 codigo = ((EditText) findViewById(R.id.codigo_carrera)).getText().toString();
                 titulo = ((EditText) findViewById(R.id.titulo_carrera)).getText().toString();
+                position = getIntent().getIntExtra("position",-1);
 
                 Intent intent = new Intent(AgregarCarrera.this, CarreraListView.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("nombre", nombre);
                 intent.putExtra("codigo", codigo);
                 intent.putExtra("titulo", titulo);
+                intent.putExtra("position", position);
                 //startActivityIfNeeded(intent, 0);
                 startActivity(intent);
                 finish();
@@ -68,7 +72,12 @@ public class AgregarCarrera extends AppCompatActivity {
         });
     }
 
-
+    public void editData() {
+        ((EditText)findViewById(R.id.nombre_carrera)).setText(getIntent().getStringExtra("nombre"));
+        ((EditText)findViewById(R.id.codigo_carrera)).setText(getIntent().getStringExtra("codigo"));
+        ((EditText)findViewById(R.id.codigo_carrera)).setEnabled(false);
+        ((EditText)findViewById(R.id.titulo_carrera)).setText(getIntent().getStringExtra("titulo"));
+    }
 }
 
 

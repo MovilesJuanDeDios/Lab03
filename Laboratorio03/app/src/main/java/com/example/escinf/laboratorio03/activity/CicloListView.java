@@ -98,9 +98,29 @@ public class CicloListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                int anno;
+                int numero;
+                String fechaInicio;
+                String fechaFin;
+                Boolean edit;
+
                 switch (index) {
                     case 0:
-                        // accion editar
+                        anno = listaCiclo.get(position).getAnno();
+                        numero = listaCiclo.get(position).getNumero();
+                        fechaInicio = listaCiclo.get(position).getFechaInicio();
+                        fechaFin = listaCiclo.get(position).getFechaFin();
+                        edit = true;
+
+                        Intent intent = new Intent(CicloListView.this, AgregarCiclo.class);
+                        intent.putExtra("anno", anno);
+                        intent.putExtra("numero", numero);
+                        intent.putExtra("fechaInicio", fechaInicio);
+                        intent.putExtra("fechaFin", fechaFin);
+                        intent.putExtra("edit", edit);
+                        intent.putExtra("position", position);
+                        startActivity(intent);
+                        finish();
                         break;
                     case 1:
                         listaCiclo.remove(position);
@@ -121,6 +141,9 @@ public class CicloListView extends AppCompatActivity {
         ciclo.setNumero(getIntent().getIntExtra("numero", 0));
         ciclo.setFechaInicio(getIntent().getStringExtra("fechaInicio"));
         ciclo.setFechaFin(getIntent().getStringExtra("fechaFin"));
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            listaCiclo.remove(position);
         if (ciclo.getFechaInicio() != null)
             listaCiclo.add(ciclo);
     }

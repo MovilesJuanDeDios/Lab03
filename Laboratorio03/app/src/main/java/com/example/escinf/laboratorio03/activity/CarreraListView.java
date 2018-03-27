@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 
 
 import com.baoyz.swipemenulistview.SwipeMenu;
@@ -98,9 +99,26 @@ public class CarreraListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                String nombre;
+                String codigo;
+                String titulo;
+                Boolean edit;
+
                 switch (index) {
                     case 0:
-                        // accion editar
+                        nombre = listaCarrera.get(position).getNombre();
+                        codigo = listaCarrera.get(position).getCodigo();
+                        titulo = listaCarrera.get(position).getTitulo();
+                        edit = true;
+
+                        Intent intent = new Intent(CarreraListView.this, AgregarCarrera.class);
+                        intent.putExtra("nombre", nombre);
+                        intent.putExtra("codigo", codigo);
+                        intent.putExtra("titulo", titulo);
+                        intent.putExtra("edit", edit);
+                        intent.putExtra("position", position);
+                        startActivity(intent);
+                        finish();
                         break;
                     case 1:
                         listaCarrera.remove(position);
@@ -120,8 +138,12 @@ public class CarreraListView extends AppCompatActivity {
         carrera.setNombre(getIntent().getStringExtra("nombre"));
         carrera.setCodigo(getIntent().getStringExtra("codigo"));
         carrera.setTitulo(getIntent().getStringExtra("titulo"));
-        if (carrera.getNombre() != null)
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            listaCarrera.remove(position);
+        if (carrera.getNombre() != null) {
             listaCarrera.add(carrera);
+        }
     }
 
     public void add(){
