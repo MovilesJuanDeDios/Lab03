@@ -47,7 +47,8 @@ public class AgregarAlumno extends AppCompatActivity {
 
         agregar();
         cancelar();
-
+        if(getIntent().getBooleanExtra("edit",false))
+            editData();
     }
 
     private void agregar() {
@@ -60,6 +61,7 @@ public class AgregarAlumno extends AppCompatActivity {
             private String email;
             private String fechaNac;
             private Carrera carrera;
+            private int position;
 
             @Override
             public void onClick(View v) {
@@ -69,6 +71,7 @@ public class AgregarAlumno extends AppCompatActivity {
                 email = ((EditText) findViewById(R.id.email_alumno)).getText().toString();
                 fechaNac = ((EditText) findViewById(R.id.fechaNac_alumno)).getText().toString();
                 carrera = getCarrera(spinner.getSelectedItem().toString());
+                position = getIntent().getIntExtra("position",-1);
 
                 Intent intent = new Intent(AgregarAlumno.this, AlumnoListView.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -78,6 +81,7 @@ public class AgregarAlumno extends AppCompatActivity {
                 intent.putExtra("email", email);
                 intent.putExtra("fechaNac", fechaNac);
                 intent.putExtra("carrera", carrera);
+                intent.putExtra("position", position);
                 //startActivityIfNeeded(intent, 0);
                 startActivity(intent);
                 finish();
@@ -104,6 +108,15 @@ public class AgregarAlumno extends AppCompatActivity {
             }
         }
         return null;
+    }
+
+    public void editData() {
+        ((EditText) findViewById(R.id.nombre_alumno)).setText(getIntent().getStringExtra("nombre"));
+        ((EditText) findViewById(R.id.cedula_alumno)).setText(getIntent().getStringExtra("cedula"));
+        ((EditText) findViewById(R.id.cedula_alumno)).setEnabled(false);
+        ((EditText) findViewById(R.id.telefono_alumno)).setText(getIntent().getStringExtra("telefono"));
+        ((EditText) findViewById(R.id.email_alumno)).setText(getIntent().getStringExtra("email"));
+        ((EditText) findViewById(R.id.fechaNac_alumno)).setText(getIntent().getStringExtra("fechaNac"));
     }
 
 }

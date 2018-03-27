@@ -97,9 +97,37 @@ public class AlumnoListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
+                String nombre;
+                String cedula;
+                String telefono;
+                String email;
+                String fechaNac;
+                Boolean edit;
+
                 switch (index) {
                     case 0:
-                        // accion editar
+                        nombre = Data.listaAlumno.get(position).getNombre();
+                        cedula = Data.listaAlumno.get(position).getCedula();
+                        telefono = Data.listaAlumno.get(position).getTelefono();
+                        email = Data.listaAlumno.get(position).getEmail();
+                        fechaNac = Data.listaAlumno.get(position).getFechaNacimiento();
+                        edit = true;
+
+                        Intent intent = new Intent(AlumnoListView.this, AgregarAlumno.class);
+
+                        Alumno alumno = (Alumno) listview.getItemAtPosition(position);
+                        intent.putExtra("alumno", alumno);
+
+                        intent.putExtra("nombre", nombre);
+                        intent.putExtra("cedula", cedula);
+                        intent.putExtra("telefono", telefono);
+                        intent.putExtra("email", email);
+                        intent.putExtra("fechaNac", fechaNac);
+                        intent.putExtra("edit", edit);
+                        intent.putExtra("position", position);
+
+                        startActivity(intent);
+                        finish();
                         break;
                     case 1:
                         Data.listaAlumno.remove(position);
@@ -121,6 +149,9 @@ public class AlumnoListView extends AppCompatActivity {
         alumno.setEmail(getIntent().getStringExtra("email"));
         alumno.setFechaNacimiento(getIntent().getStringExtra("fechaNac"));
         alumno.setCarrera((Carrera)getIntent().getSerializableExtra("carrera"));
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            Data.listaAlumno.remove(position);
         if (alumno.getCedula() != null)
             Data.listaAlumno.add(alumno);
     }
