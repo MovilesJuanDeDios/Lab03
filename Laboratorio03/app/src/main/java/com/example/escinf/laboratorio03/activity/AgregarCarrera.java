@@ -44,7 +44,6 @@ public class AgregarCarrera extends AppCompatActivity {
                 codigo = ((EditText) findViewById(R.id.codigo_carrera)).getText().toString();
                 titulo = ((EditText) findViewById(R.id.titulo_carrera)).getText().toString();
 
-
                 Intent intent = new Intent(AgregarCarrera.this, CarreraListView.class);
                 //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 intent.putExtra("nombre", nombre);

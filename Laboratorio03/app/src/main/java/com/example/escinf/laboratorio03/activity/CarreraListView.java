@@ -10,8 +10,6 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 
-import android.widget.ListView;
-
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
@@ -19,7 +17,9 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Carrera;
-import com.example.escinf.laboratorio03.utils.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by slon on 25/3/2018.
@@ -29,6 +29,10 @@ public class CarreraListView extends AppCompatActivity {
 
     ArrayAdapter<Carrera> adapter;
     SwipeMenuListView listview;
+
+    public static final List<Carrera> listaCarrera = new ArrayList<>();
+
+    private static boolean added = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +53,13 @@ public class CarreraListView extends AppCompatActivity {
                 finish();
             }
         });
+
+        if (!added) {
+            add();
+            added = true;
+        }
         addData();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCarrera);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaCarrera);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -94,7 +103,8 @@ public class CarreraListView extends AppCompatActivity {
                         // accion editar
                         break;
                     case 1:
-                        // accion eliminar
+                        listaCarrera.remove(position);
+                        adapter.notifyDataSetChanged();
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -111,22 +121,16 @@ public class CarreraListView extends AppCompatActivity {
         carrera.setCodigo(getIntent().getStringExtra("codigo"));
         carrera.setTitulo(getIntent().getStringExtra("titulo"));
         if (carrera.getNombre() != null)
-            Data.listaCarrera.add(carrera);
-
-
-        add();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCarrera);
-        listview.setAdapter(adapter);
-        adapter.notifyDataSetChanged();
+            listaCarrera.add(carrera);
     }
 
     public void add(){
         Carrera carrera = new Carrera("EIF","Informatica","Bachillerato");
         Carrera carrera2 = new Carrera("MAT","Matematica","Bachillerato");
         Carrera carrera3 = new Carrera("LIX","Ingles","Bachillerato");
-        Data.listaCarrera.add(carrera);
-        Data.listaCarrera.add(carrera2);
-        Data.listaCarrera.add(carrera3);
+        listaCarrera.add(carrera);
+        listaCarrera.add(carrera2);
+        listaCarrera.add(carrera3);
 
     }
 }

@@ -3,15 +3,13 @@ package com.example.escinf.laboratorio03.activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.nfc.Tag;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.widget.EditText;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
@@ -19,7 +17,9 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Profesor;
-import com.example.escinf.laboratorio03.utils.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -30,6 +30,11 @@ public class ProfesorListView extends AppCompatActivity {
 
     ArrayAdapter<Profesor> adapter;
     SwipeMenuListView listview;
+
+    public static final List<Profesor> listaProf = new ArrayList<>();
+
+    private static boolean added = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,10 +54,12 @@ public class ProfesorListView extends AppCompatActivity {
 
             }
         });
-
-        add();
+        if (!added) {
+            add();
+            added = true;
+        }
         addData();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaProf);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaProf);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -93,10 +100,13 @@ public class ProfesorListView extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
                     case 0:
-                        // accion editar
+                        Intent intent = new Intent(ProfesorListView.this, AgregarProfesor.class);
+                        startActivity(intent);
+                        finish();
                         break;
                     case 1:
-                        // accion eliminar
+                        listaProf.remove(position);
+                        adapter.notifyDataSetChanged();
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -113,20 +123,20 @@ public class ProfesorListView extends AppCompatActivity {
         profesor.setTelefono(getIntent().getStringExtra("telefono"));
         profesor.setEmail(getIntent().getStringExtra("email"));
         if (profesor.getCedula() != null)
-            Data.listaProf.add(profesor);
-
+            listaProf.add(profesor);
     }
-
 
     public void add(){
-        Profesor profesor = new Profesor("753","Juan","8574-9545","juan@gmail.com");
-        Profesor profesor2 = new Profesor("159","Carlos","8326-4585","carlos@gmail.com");
-        Profesor profesor3 = new Profesor("852","Johnny","8659-3457","johnny@gmail.com");
-        Profesor profesor4 = new Profesor("486","Jose","8547-2163","jose@gmail.com");
-        Data.listaProf.add(profesor);
-        Data.listaProf.add(profesor2);
-        Data.listaProf.add(profesor3);
-        Data.listaProf.add(profesor4);
+        Profesor profesor = new Profesor("753","Juan","85749545","juan@gmail.com");
+        Profesor profesor2 = new Profesor("159","Carlos","83264585","carlos@gmail.com");
+        Profesor profesor3 = new Profesor("852","Johnny","86593457","johnny@gmail.com");
+        Profesor profesor4 = new Profesor("486","Jose","85472163","jose@gmail.com");
+        listaProf.add(profesor);
+        listaProf.add(profesor2);
+        listaProf.add(profesor3);
+        listaProf.add(profesor4);
     }
+
+
 
 }

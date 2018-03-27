@@ -9,7 +9,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.ListView;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
@@ -17,7 +16,9 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.example.escinf.laboratorio03.R;
 import com.example.escinf.laboratorio03.modelo.Curso;
-import com.example.escinf.laboratorio03.utils.Data;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by slon on 25/3/2018.
@@ -28,6 +29,9 @@ public class CursoListView extends AppCompatActivity {
     ArrayAdapter<Curso> adapter;
     SwipeMenuListView listview;
 
+    public static final List<Curso> listaCurso = new ArrayList<>();
+
+    private static boolean added = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,9 +50,12 @@ public class CursoListView extends AppCompatActivity {
                 finish();
             }
         });
-        add();
+        if (!added) {
+            add();
+            added = true;
+        }
         addData();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCurso);
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listaCurso);
         listview.setAdapter(adapter);
         adapter.notifyDataSetChanged();
 
@@ -92,7 +99,8 @@ public class CursoListView extends AppCompatActivity {
                         // accion editar
                         break;
                     case 1:
-                        // accion eliminar
+                        listaCurso.remove(position);
+                        adapter.notifyDataSetChanged();
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -110,7 +118,7 @@ public class CursoListView extends AppCompatActivity {
         curso.setCreditos(getIntent().getIntExtra("creditos", 0));
         curso.setHorasSemanales(getIntent().getIntExtra("horasSemanales", 0));
         if (curso.getNombre() != null)
-            Data.listaCurso.add(curso);
+            listaCurso.add(curso);
     }
 
     public void add(){
@@ -118,9 +126,9 @@ public class CursoListView extends AppCompatActivity {
         Curso curso2 = new Curso("EI605","Metodos_Investigacion",4,12);
         Curso curso3 = new Curso("EIF606","Ingenieria3",4,12);
         Curso curso4 = new Curso("EIF607","Paradigmas",4,12);
-        Data.listaCurso.add(curso);
-        Data.listaCurso.add(curso2);
-        Data.listaCurso.add(curso3);
-        Data.listaCurso.add(curso4);
+        listaCurso.add(curso);
+        listaCurso.add(curso2);
+        listaCurso.add(curso3);
+        listaCurso.add(curso4);
     }
 }
