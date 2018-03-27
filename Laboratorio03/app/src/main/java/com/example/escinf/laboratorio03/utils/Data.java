@@ -4,6 +4,7 @@ import com.example.escinf.laboratorio03.modelo.Alumno;
 import com.example.escinf.laboratorio03.modelo.Carrera;
 import com.example.escinf.laboratorio03.modelo.Ciclo;
 import com.example.escinf.laboratorio03.modelo.Curso;
+import com.example.escinf.laboratorio03.modelo.Grupo;
 import com.example.escinf.laboratorio03.modelo.Profesor;
 import com.example.escinf.laboratorio03.modelo.Usuario;
 
@@ -27,5 +28,7 @@ public class Data {
     public static final List<Carrera> listaCarrera = new ArrayList<>();
 
     public static final List<Alumno> listaAlumno = new ArrayList<>();
+
+    public static final List<Grupo> listaGrupo = new ArrayList<>();
 
 }

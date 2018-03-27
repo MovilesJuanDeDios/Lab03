@@ -7,19 +7,21 @@ import java.util.List;
 public class Grupo implements Serializable {
 
     private Ciclo ciclo;
+    private Curso curso;
     private int numero;
     private String horario;
-    private int Profesor;
+    private Profesor Profesor;
     private List<Alumno> alumnos;
 
     public Grupo() {
     }
 
-    public Grupo(Ciclo ciclo, int numero, String horario, int profesor, List<Alumno> alumnos) {
+    public Grupo(Ciclo ciclo, Curso curso, int numero, String horario, Profesor profesor, List<Alumno> alumnos) {
         this.ciclo = ciclo;
+        this.curso = curso;
         this.numero = numero;
         this.horario = horario;
-        Profesor = profesor;
+        this.Profesor = profesor;
         this.alumnos = alumnos;
     }
 
@@ -29,6 +31,14 @@ public class Grupo implements Serializable {
 
     public void setCiclo(Ciclo ciclo) {
         this.ciclo = ciclo;
+    }
+
+    public Curso getCurso() {
+        return curso;
+    }
+
+    public void setCurso(Curso curso) {
+        this.curso = curso;
     }
 
     public int getNumero() {
@@ -47,11 +57,11 @@ public class Grupo implements Serializable {
         this.horario = horario;
     }
 
-    public int getProfesor() {
+    public Profesor getProfesor() {
         return Profesor;
     }
 
-    public void setProfesor(int profesor) {
+    public void setProfesor(Profesor profesor) {
         Profesor = profesor;
     }
 
@@ -63,5 +73,10 @@ public class Grupo implements Serializable {
         this.alumnos = alumnos;
     }
 
-
+    @Override
+    public String toString() {
+        return "Ciclo: " + ciclo.toString() + "\n" +
+                "Curso: " + curso.getNombre() + "\n" +
+                "Profesor: " + Profesor.getNombre();
+    }
 }

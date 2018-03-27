@@ -6,14 +6,14 @@ import java.io.Serializable;
 public class Ciclo implements Serializable {
 
     private int anno;
-    private int numero;
+    private String numero;
     private String fechaInicio;
     private String fechaFin;
 
     public Ciclo() {
     }
 
-    public Ciclo(int anno, int numero, String fechaInicio, String fechaFin) {
+    public Ciclo(int anno, String numero, String fechaInicio, String fechaFin) {
         this.anno = anno;
         this.numero = numero;
         this.fechaInicio = fechaInicio;
@@ -28,11 +28,11 @@ public class Ciclo implements Serializable {
         this.anno = anno;
     }
 
-    public int getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(int numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -54,10 +54,7 @@ public class Ciclo implements Serializable {
 
     @Override
     public String toString() {
-        if (numero == 1)
-            return "Pimer ciclo - "  + anno;
-        else
-            return "Segundo ciclo - "  + anno;
+       return numero + " " + anno;
     }
 
 }
