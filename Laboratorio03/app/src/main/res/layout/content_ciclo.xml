@@ -23,23 +23,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <SearchView
+            android:id="@+id/buscar_ciclo"
             android:layout_width="182dp"
             android:layout_height="match_parent" />
 
-        <TextView
-            android:id="@+id/textView9"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="Buscar por"
-            android:textColor="@color/black" />
 
-        <Spinner
-            android:id="@+id/spinner_busc_ciclo"
-            android:layout_width="8dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:entries="@array/opciones_ciclos" />
     </LinearLayout>
 
     <LinearLayout

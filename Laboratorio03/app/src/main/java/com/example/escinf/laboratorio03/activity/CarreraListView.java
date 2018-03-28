@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.SearchView;
+import android.widget.Toast;
 
 
 import com.baoyz.swipemenulistview.SwipeMenu;
@@ -51,6 +53,20 @@ public class CarreraListView extends AppCompatActivity {
                 Intent intent = new Intent(CarreraListView.this, AgregarCarrera.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        final SearchView searchCar = (SearchView)findViewById(R.id.buscar_carrera);
+        searchCar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
             }
         });
 

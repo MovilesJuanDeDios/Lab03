@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.SearchView;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
 import com.baoyz.swipemenulistview.SwipeMenuCreator;
@@ -49,6 +50,20 @@ public class CicloListView extends AppCompatActivity {
                 Intent intent = new Intent(CicloListView.this, AgregarCiclo.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        final SearchView searchCiclo = (SearchView)findViewById(R.id.buscar_ciclo);
+        searchCiclo.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String s) {
+                adapter.getFilter().filter(s);
+                return false;
             }
         });
 
