@@ -70,10 +70,7 @@ public class CarreraListView extends AppCompatActivity {
             }
         });
 
-        if (!added) {
-            add();
-            added = true;
-        }
+
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCarrera);
         listview.setAdapter(adapter);
@@ -166,14 +163,5 @@ public class CarreraListView extends AppCompatActivity {
 
     }
 
-    public void add(){
-        Carrera carrera = new Carrera("EIF","Informatica","Bachillerato");
-        Carrera carrera2 = new Carrera("MAT","Matematica","Bachillerato");
-        Carrera carrera3 = new Carrera("LIX","Ingles","Bachillerato");
-        Data.listaCarrera.add(carrera);
-        Data.listaCarrera.add(carrera2);
-        Data.listaCarrera.add(carrera3);
-
-    }
 }
 

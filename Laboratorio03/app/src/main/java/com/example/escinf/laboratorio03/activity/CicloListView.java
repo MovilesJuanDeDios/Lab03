@@ -32,8 +32,6 @@ public class CicloListView extends AppCompatActivity {
     ArrayAdapter<Ciclo> adapter;
     SwipeMenuListView listview;
 
-    private static boolean added = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,10 +65,6 @@ public class CicloListView extends AppCompatActivity {
             }
         });
 
-        if (!added) {
-            add();
-            added = true;
-        }
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCiclo);
         listview.setAdapter(adapter);
@@ -161,16 +155,5 @@ public class CicloListView extends AppCompatActivity {
             Data.listaCiclo.add(ciclo);
     }
 
-    public void add(){
-        Ciclo ciclo = new Ciclo(2014,"Primero","07/02/2014","20/06/2017");
-        Ciclo ciclo2 = new Ciclo(2015,"Segundo","24/07/2015","18/11/2015");
-        Ciclo ciclo3 = new Ciclo(2016,"Primero","05/02/2016","15/06/2016");
-        Ciclo ciclo4 = new Ciclo(2017,"Segundo","27/07/2017","15/11/2017");
-        Data.listaCiclo.add(ciclo);
-        Data.listaCiclo.add(ciclo2);
-        Data.listaCiclo.add(ciclo3);
-        Data.listaCiclo.add(ciclo4);
-
-    }
 }
 

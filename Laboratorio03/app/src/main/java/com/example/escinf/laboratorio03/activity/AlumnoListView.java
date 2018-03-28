@@ -32,7 +32,6 @@ public class AlumnoListView extends AppCompatActivity {
     ArrayAdapter<Alumno> adapter;
     SwipeMenuListView listview;
 
-    private static boolean added = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +66,6 @@ public class AlumnoListView extends AppCompatActivity {
             }
         });
 
-        if (!added) {
-            add();
-            added = true;
-        }
 
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaAlumno);
@@ -169,11 +164,6 @@ public class AlumnoListView extends AppCompatActivity {
             Data.listaAlumno.remove(position);
         if (alumno.getCedula() != null)
             Data.listaAlumno.add(alumno);
-    }
-
-    public void add(){
-
-
     }
 
 

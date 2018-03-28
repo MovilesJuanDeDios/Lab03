@@ -2,6 +2,7 @@ package com.example.escinf.laboratorio03.modelo;
 
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Grupo implements Serializable {
@@ -16,13 +17,13 @@ public class Grupo implements Serializable {
     public Grupo() {
     }
 
-    public Grupo(Ciclo ciclo, Curso curso, int numero, String horario, Profesor profesor, List<Alumno> alumnos) {
+    public Grupo(Ciclo ciclo, Curso curso, int numero, String horario, Profesor profesor) {
         this.ciclo = ciclo;
         this.curso = curso;
         this.numero = numero;
         this.horario = horario;
         this.Profesor = profesor;
-        this.alumnos = alumnos;
+        alumnos = new ArrayList<>();
     }
 
     public Ciclo getCiclo() {

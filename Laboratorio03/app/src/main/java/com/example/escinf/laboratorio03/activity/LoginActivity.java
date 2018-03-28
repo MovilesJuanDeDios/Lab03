@@ -49,6 +49,8 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
      */
     private static final int REQUEST_READ_CONTACTS = 0;
 
+    private static boolean added = false;
+
     /**
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
@@ -68,7 +70,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private View mLoginFormView;
 
     /* *************************** LISTA DE USUARIOS QUEMADO EN EL APP  *************************** */
-    private void add(){
+    private void addUsusarios(){
         Usuario user = new Usuario("administrador@admin.una","12345",1);
         Usuario user2 = new Usuario("matriculador@mat.una","12345",2);
         Usuario user3 = new Usuario("profesor@prof.una","12345",3);
@@ -81,7 +83,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        add();
+        if (!added) {
+            addUsusarios();
+            added = true;
+        }
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         // Set up the login form.

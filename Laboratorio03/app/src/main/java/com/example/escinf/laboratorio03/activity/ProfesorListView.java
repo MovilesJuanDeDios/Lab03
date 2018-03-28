@@ -33,8 +33,6 @@ public class ProfesorListView extends AppCompatActivity {
     ArrayAdapter<Profesor> adapter;
     SwipeMenuListView listview;
 
-    private static boolean added = false;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,10 +67,6 @@ public class ProfesorListView extends AppCompatActivity {
             }
         });
 
-        if (!added) {
-            add();
-            added = true;
-        }
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaProf);
         listview.setAdapter(adapter);
@@ -166,18 +160,5 @@ public class ProfesorListView extends AppCompatActivity {
         if (profesor.getCedula() != null)
             Data.listaProf.add(profesor);
     }
-
-    public void add(){
-        Profesor profesor = new Profesor("753","Juan","85749545","juan@gmail.com");
-        Profesor profesor2 = new Profesor("159","Carlos","83264585","carlos@gmail.com");
-        Profesor profesor3 = new Profesor("852","Johnny","86593457","johnny@gmail.com");
-        Profesor profesor4 = new Profesor("486","Jose","85472163","jose@gmail.com");
-        Data.listaProf.add(profesor);
-        Data.listaProf.add(profesor2);
-        Data.listaProf.add(profesor3);
-        Data.listaProf.add(profesor4);
-    }
-
-
 
 }

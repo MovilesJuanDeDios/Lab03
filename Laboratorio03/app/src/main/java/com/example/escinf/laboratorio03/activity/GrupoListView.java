@@ -27,8 +27,6 @@ public class GrupoListView extends AppCompatActivity {
     SwipeMenuListView listview;
 
 
-    private static boolean added = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,11 +45,6 @@ public class GrupoListView extends AppCompatActivity {
             }
         });
 
-        if (!added) {
-            add();
-            added = true;
-        }
-
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaGrupo);
         listview.setAdapter(adapter);
@@ -68,10 +61,6 @@ public class GrupoListView extends AppCompatActivity {
         grupo.setProfesor((Profesor) getIntent().getSerializableExtra("profesor"));
         if (grupo.getHorario() != null)
             Data.listaGrupo.add(grupo);
-    }
-
-    public void add() {
-
     }
 
 }

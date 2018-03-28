@@ -31,7 +31,6 @@ public class CursoListView extends AppCompatActivity {
     ArrayAdapter<Curso> adapter;
     SwipeMenuListView listview;
 
-    private static boolean added = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,10 +64,6 @@ public class CursoListView extends AppCompatActivity {
             }
         });
 
-        if (!added) {
-            add();
-            added = true;
-        }
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCurso);
         listview.setAdapter(adapter);
@@ -145,7 +140,6 @@ public class CursoListView extends AppCompatActivity {
 
     }
 
-
     public void addData() {
         Curso curso = new Curso();
         curso.setNombre(getIntent().getStringExtra("nombre"));
@@ -159,14 +153,4 @@ public class CursoListView extends AppCompatActivity {
             Data.listaCurso.add(curso);
     }
 
-    public void add(){
-        Curso curso = new Curso("EIF604","Dispositivos_Moviles",4,12);
-        Curso curso2 = new Curso("EI605","Metodos_Investigacion",4,12);
-        Curso curso3 = new Curso("EIF606","Ingenieria3",4,12);
-        Curso curso4 = new Curso("EIF607","Paradigmas",4,12);
-        Data.listaCurso.add(curso);
-        Data.listaCurso.add(curso2);
-        Data.listaCurso.add(curso3);
-        Data.listaCurso.add(curso4);
-    }
 }
