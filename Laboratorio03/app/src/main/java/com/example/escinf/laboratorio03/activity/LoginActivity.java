@@ -69,10 +69,10 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     /* *************************** LISTA DE USUARIOS QUEMADO EN EL APP  *************************** */
     private void add(){
-        Usuario user = new Usuario("admin@gmail.com","12345",1);
-        Usuario user2 = new Usuario("matriculador@gmail.com","12345",2);
-        Usuario user3 = new Usuario("profe@gmail.com","12345",3);
-        Usuario user4 = new Usuario("alumno@gmail.com","12345",4);
+        Usuario user = new Usuario("administrador@admin.una","12345",1);
+        Usuario user2 = new Usuario("matriculador@mat.una","12345",2);
+        Usuario user3 = new Usuario("profesor@prof.una","12345",3);
+        Usuario user4 = new Usuario("estudiante@est.una","12345",4);
         Data.listaUsuarios.add(user);
         Data.listaUsuarios.add(user2);
         Data.listaUsuarios.add(user3);
@@ -219,7 +219,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
     private boolean isEmailValid(String email) {
         //TODO: Replace this with your own logic
         for (Usuario element:Data.listaUsuarios) {
-            if(element.getCedula().equals(email) && email.contains("@"))
+            if(element.getUserName().equals(email) && email.contains("@"))
                 return true;
         }
         return false;

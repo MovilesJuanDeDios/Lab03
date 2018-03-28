@@ -5,25 +5,25 @@ import java.io.Serializable;
 
 public class Usuario implements Serializable {
 
-    private String cedula;
+    private String userName;
     private String clave;
     private int rol;
 
     public Usuario() {
     }
 
-    public Usuario(String cedula, String clave, int rol) {
-        this.cedula = cedula;
+    public Usuario(String userName, String clave, int rol) {
+        this.userName = userName;
         this.clave = clave;
         this.rol = rol;
     }
 
-    public String getCedula() {
-        return cedula;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
+    public void setUserName(String cedula) {
+        this.userName = userName;
     }
 
     public String getClave() {

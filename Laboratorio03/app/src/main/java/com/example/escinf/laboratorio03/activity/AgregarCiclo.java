@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,6 +17,12 @@ public class AgregarCiclo extends AppCompatActivity {
 
     private Button btn_agregar;
     private Button btn_cancelar;
+
+    private int anno;
+    private String numero;
+    private String fechaInicio;
+    private String fechaFin;
+    private int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,11 +41,6 @@ public class AgregarCiclo extends AppCompatActivity {
         btn_agregar = (Button) findViewById(R.id.button_aceptar_ciclo);
 
         btn_agregar.setOnClickListener(new View.OnClickListener() {
-            private int anno;
-            private String numero;
-            private String fechaInicio;
-            private String fechaFin;
-            private int position;
 
             @Override
             public void onClick(View v) {
@@ -52,16 +54,19 @@ public class AgregarCiclo extends AppCompatActivity {
                 fechaFin = ((EditText) findViewById(R.id.fecha_finalizacion_ciclo)).getText().toString();
                 position = getIntent().getIntExtra("position",-1);
 
-                Intent intent = new Intent(AgregarCiclo.this, CicloListView.class);
-                //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                intent.putExtra("anno", anno);
-                intent.putExtra("numero", numero);
-                intent.putExtra("fechaInicio", fechaInicio);
-                intent.putExtra("fechaFin", fechaFin);
-                intent.putExtra("position", position);
-                //startActivityIfNeeded(intent, 0);
-                startActivity(intent);
-                finish();
+                if (validate()) {
+
+                    Intent intent = new Intent(AgregarCiclo.this, CicloListView.class);
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    intent.putExtra("anno", anno);
+                    intent.putExtra("numero", numero);
+                    intent.putExtra("fechaInicio", fechaInicio);
+                    intent.putExtra("fechaFin", fechaFin);
+                    intent.putExtra("position", position);
+                    //startActivityIfNeeded(intent, 0);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
@@ -89,6 +94,25 @@ public class AgregarCiclo extends AppCompatActivity {
         ((Spinner)findViewById(R.id.spinner_numero_ciclo)).setEnabled(false);
         ((EditText)findViewById(R.id.fecha_inicio_ciclo)).setText(getIntent().getStringExtra("fechaInicio"));
         ((EditText)findViewById(R.id.fecha_finalizacion_ciclo)).setText(getIntent().getStringExtra("fechaFin"));
+    }
+
+    private boolean validate() {
+        boolean go = true;
+
+        if (TextUtils.isEmpty(((EditText) findViewById(R.id.anno_ciclo)).getText().toString())) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(numero)) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(fechaInicio)) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(fechaFin)) {
+            go = false;
+        }
+
+        return go;
     }
 
 }

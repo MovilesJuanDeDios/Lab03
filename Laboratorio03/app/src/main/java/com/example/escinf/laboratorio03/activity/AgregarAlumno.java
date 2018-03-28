@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -23,6 +24,14 @@ public class AgregarAlumno extends AppCompatActivity {
     private Button btn_agregar;
     private Button btn_cancelar;
 
+    private String cedula;
+    private String nombre;
+    private String telefono;
+    private String email;
+    private String fechaNac;
+    private Carrera carrera;
+    private int position;
+
     ArrayAdapter<String> adapterCarrera;
     Spinner spinner;
 
@@ -36,6 +45,10 @@ public class AgregarAlumno extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         spinner = (Spinner) findViewById(R.id.spinner_carrera_alumno);
+
+        if (Data.listaCarrera.size() == 0) {
+            list.add(" ");
+        }
 
         for (int i = 0; i < Data.listaCarrera.size(); i++) {
             list.add(Data.listaCarrera.get(i).getNombre());
@@ -55,13 +68,6 @@ public class AgregarAlumno extends AppCompatActivity {
         btn_agregar = (Button) findViewById(R.id.button_aceptar_alumno);
 
         btn_agregar.setOnClickListener(new View.OnClickListener() {
-            private String cedula;
-            private String nombre;
-            private String telefono;
-            private String email;
-            private String fechaNac;
-            private Carrera carrera;
-            private int position;
 
             @Override
             public void onClick(View v) {
@@ -73,18 +79,21 @@ public class AgregarAlumno extends AppCompatActivity {
                 carrera = getCarrera(spinner.getSelectedItem().toString());
                 position = getIntent().getIntExtra("position",-1);
 
-                Intent intent = new Intent(AgregarAlumno.this, AlumnoListView.class);
-                //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
-                intent.putExtra("cedula", cedula);
-                intent.putExtra("nombre", nombre);
-                intent.putExtra("telefono", telefono);
-                intent.putExtra("email", email);
-                intent.putExtra("fechaNac", fechaNac);
-                intent.putExtra("carrera", carrera);
-                intent.putExtra("position", position);
-                //startActivityIfNeeded(intent, 0);
-                startActivity(intent);
-                finish();
+                if (validate()) {
+
+                    Intent intent = new Intent(AgregarAlumno.this, AlumnoListView.class);
+                    //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                    intent.putExtra("cedula", cedula);
+                    intent.putExtra("nombre", nombre);
+                    intent.putExtra("telefono", telefono);
+                    intent.putExtra("email", email);
+                    intent.putExtra("fechaNac", fechaNac);
+                    intent.putExtra("carrera", carrera);
+                    intent.putExtra("position", position);
+                    //startActivityIfNeeded(intent, 0);
+                    startActivity(intent);
+                    finish();
+                }
             }
         });
     }
@@ -117,6 +126,32 @@ public class AgregarAlumno extends AppCompatActivity {
         ((EditText) findViewById(R.id.telefono_alumno)).setText(getIntent().getStringExtra("telefono"));
         ((EditText) findViewById(R.id.email_alumno)).setText(getIntent().getStringExtra("email"));
         ((EditText) findViewById(R.id.fechaNac_alumno)).setText(getIntent().getStringExtra("fechaNac"));
+    }
+
+    private boolean validate() {
+        boolean go = true;
+
+        if (TextUtils.isEmpty(cedula)) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(nombre)) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(telefono)) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(email)) {
+            go = false;
+        }
+        if (TextUtils.isEmpty(fechaNac)) {
+            go = false;
+        }
+
+        if(spinner.getSelectedItem().equals(" ")) {
+            go = false;
+        }
+
+        return go;
     }
 
 }

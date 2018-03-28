@@ -28,13 +28,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Cedula"
+                    android:text="Nombre de Usuario"
                     android:id="@+id/textView1" />
 
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/cedula_usuario" />
+                    android:id="@+id/nombre_usuario" />
             </TableRow>
 
             <TableRow
@@ -52,7 +52,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="textPassword"
                     android:ems="10"
                     android:id="@+id/clave_usuario" />
             </TableRow>
@@ -72,7 +72,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:inputType="number"
+                    android:inputType="textPassword"
                     android:ems="10"
                     android:id="@+id/cambiar_clave" />
             </TableRow>

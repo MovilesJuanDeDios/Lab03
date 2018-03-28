@@ -55,17 +55,18 @@ public class GrupoListView extends AppCompatActivity {
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaGrupo);
         listview.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
     }
 
 
     public void addData() {
         Grupo grupo = new Grupo();
         grupo.setCiclo((Ciclo) getIntent().getSerializableExtra("ciclo"));
-        grupo.setCurso((Curso) getIntent().getSerializableExtra("codigo"));
+        grupo.setCurso((Curso) getIntent().getSerializableExtra("curso"));
         grupo.setNumero(getIntent().getIntExtra("numero", 0));
         grupo.setHorario(getIntent().getStringExtra("horario"));
-        grupo.setProfesor((Profesor) getIntent().getSerializableExtra("Profesor"));
-        if (grupo.getCiclo() != null)
+        grupo.setProfesor((Profesor) getIntent().getSerializableExtra("profesor"));
+        if (grupo.getHorario() != null)
             Data.listaGrupo.add(grupo);
     }
 
