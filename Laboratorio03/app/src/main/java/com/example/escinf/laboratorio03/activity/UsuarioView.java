@@ -36,6 +36,7 @@ public class UsuarioView extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        editar();
         cancelar();
     }
 
@@ -51,14 +52,23 @@ public class UsuarioView extends AppCompatActivity {
                 nuevaClave = ((EditText) findViewById(R.id.nueva_clave)).getText().toString();
                 position = getIntent().getIntExtra("position",-1);
 
-                if (validate() && buscar() != null) {
-                    //buscar().setClave();
-                    Intent intent = new Intent(UsuarioView.this, Navigation.class);
-                    //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                if (validate()) {
+                    if (buscar() != null) {
+                        buscar().setClave(nuevaClave);
+                        Intent intent = new Intent(UsuarioView.this, Navigation.class);
+                        //intent.setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 
-                    //startActivityIfNeeded(intent, 0);
-                    startActivity(intent);
-                    finish();
+                        //startActivityIfNeeded(intent, 0);
+                        startActivity(intent);
+                        finish();
+                    } else {
+                        Context context = getApplicationContext();
+                        CharSequence text = "No se encontro el usuario";
+                        int duration = Toast.LENGTH_SHORT;
+
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                    }
                 } else {
                     Context context = getApplicationContext();
                     CharSequence text = "Campos vacios!";
