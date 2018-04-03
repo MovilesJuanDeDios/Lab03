@@ -34,8 +34,6 @@ public class CarreraListView extends AppCompatActivity {
     ArrayAdapter<Carrera> adapter;
     SwipeMenuListView listview;
 
-    private static boolean added = false;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -157,10 +155,6 @@ public class CarreraListView extends AppCompatActivity {
         int position = getIntent().getIntExtra("position", -1);
         if(position != -1)
             Data.listaCarrera.remove(position);
-        if (carrera.getNombre() != null) {
-            Data.listaCarrera.add(carrera);
-        }
-
     }
 
 }
