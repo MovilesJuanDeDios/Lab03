@@ -83,6 +83,9 @@ public class AgregarGrupo extends AppCompatActivity {
 
         agregar();
         cancelar();
+
+        if(getIntent().getBooleanExtra("edit",false))
+            editData();
     }
 
     private void agregar() {
@@ -128,6 +131,17 @@ public class AgregarGrupo extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    public void editData() {
+        //((Spinner)findViewById(R.id.spinner_ciclo_grupo)).setText(getIntent().getStringExtra("ciclo"));
+        ((Spinner)findViewById(R.id.spinner_ciclo_grupo)).setEnabled(false);
+        //((Spinner)findViewById(R.id.spinner_curso_grupo)).setText(getIntent().getStringExtra("curso"));
+        ((Spinner)findViewById(R.id.spinner_curso_grupo)).setEnabled(false);
+        ((EditText)findViewById(R.id.numero_grupo)).setText(getIntent().getStringExtra("numero"));
+        ((EditText)findViewById(R.id.horario_grupo)).setText(getIntent().getStringExtra("horario"));
+        //((Spinner)findViewById(R.id.spinner_asignar_profesor)).setText(getIntent().getStringExtra("profesor"));
+        ((Spinner)findViewById(R.id.spinner_asignar_profesor)).setEnabled(false);
     }
 
     private Ciclo getCiclo(String param) {
