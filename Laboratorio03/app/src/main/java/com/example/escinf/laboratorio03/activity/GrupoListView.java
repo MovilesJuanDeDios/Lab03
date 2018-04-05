@@ -105,21 +105,21 @@ public class GrupoListView extends AppCompatActivity {
         listview.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
-                Ciclo ciclo;
-                Curso curso;
+                String ciclo;
+                String curso;
                 int numero;
                 String horario;
-                Profesor profesor;
+                String profesor;
 
                 Boolean edit;
 
                 switch (index) {
                     case 0:
-                        ciclo = Data.listaGrupo.get(position).getCiclo();
-                        curso = Data.listaGrupo.get(position).getCurso();
+                        ciclo = Data.listaGrupo.get(position).getCiclo().toString();
+                        curso = Data.listaGrupo.get(position).getCurso().getNombre();
                         numero = Data.listaGrupo.get(position).getNumero();
                         horario = Data.listaGrupo.get(position).getHorario();
-                        profesor = Data.listaGrupo.get(position).getProfesor();
+                        profesor = Data.listaGrupo.get(position).getProfesor().getNombre();
                         edit = true;
                         String numeroS = Integer.toString(numero);
 

@@ -134,14 +134,11 @@ public class AgregarGrupo extends AppCompatActivity {
     }
 
     public void editData() {
-        //((Spinner)findViewById(R.id.spinner_ciclo_grupo)).setText(getIntent().getStringExtra("ciclo"));
-        ((Spinner)findViewById(R.id.spinner_ciclo_grupo)).setEnabled(false);
-        //((Spinner)findViewById(R.id.spinner_curso_grupo)).setText(getIntent().getStringExtra("curso"));
-        ((Spinner)findViewById(R.id.spinner_curso_grupo)).setEnabled(false);
+        ((Spinner)findViewById(R.id.spinner_ciclo_grupo)).setSelection(adapterCiclo.getPosition(getIntent().getStringExtra("ciclo")));
+        ((Spinner)findViewById(R.id.spinner_curso_grupo)).setSelection(adapterCurso.getPosition(getIntent().getStringExtra("curso")));
         ((EditText)findViewById(R.id.numero_grupo)).setText(getIntent().getStringExtra("numero"));
         ((EditText)findViewById(R.id.horario_grupo)).setText(getIntent().getStringExtra("horario"));
-        //((Spinner)findViewById(R.id.spinner_asignar_profesor)).setText(getIntent().getStringExtra("profesor"));
-        ((Spinner)findViewById(R.id.spinner_asignar_profesor)).setEnabled(false);
+        ((Spinner)findViewById(R.id.spinner_asignar_profesor)).setSelection(adapterProfesor.getPosition(getIntent().getStringExtra("profesor")));
     }
 
     private Ciclo getCiclo(String param) {
