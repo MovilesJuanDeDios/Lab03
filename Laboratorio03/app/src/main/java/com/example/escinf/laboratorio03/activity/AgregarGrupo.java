@@ -32,6 +32,7 @@ public class AgregarGrupo extends AppCompatActivity {
     private int numero;
     private String horario;
     private Profesor profesor;
+    private int position;
 
     ArrayAdapter<String> adapterCiclo;
     ArrayAdapter<String> adapterCurso;
@@ -104,6 +105,7 @@ public class AgregarGrupo extends AppCompatActivity {
 
                 horario = ((EditText) findViewById(R.id.horario_grupo)).getText().toString();
                 profesor = getProfesor(spinnerProfesor.getSelectedItem().toString());
+                position = getIntent().getIntExtra("position",-1);
 
                 if (validate()) {
                     Intent intent = new Intent(AgregarGrupo.this, GrupoListView.class);
@@ -113,6 +115,7 @@ public class AgregarGrupo extends AppCompatActivity {
                     intent.putExtra("numero", numero);
                     intent.putExtra("horario", horario);
                     intent.putExtra("profesor", profesor);
+                    intent.putExtra("position", position);
                     //startActivityIfNeeded(intent, 0);
                     startActivity(intent);
                     finish();

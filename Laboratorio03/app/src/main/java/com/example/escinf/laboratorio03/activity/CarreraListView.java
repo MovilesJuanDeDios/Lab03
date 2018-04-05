@@ -142,9 +142,7 @@ public class CarreraListView extends AppCompatActivity {
                         adapter.notifyDataSetChanged();
                         break;
                     case 2:
-                        Intent intent2 = new Intent(CarreraListView.this, MantenimientoCursos.class);
-                        startActivity(intent2);
-                        finish();
+
                         break;
 
                 }

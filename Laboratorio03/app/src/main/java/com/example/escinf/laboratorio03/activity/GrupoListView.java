@@ -110,7 +110,6 @@ public class GrupoListView extends AppCompatActivity {
                 int numero;
                 String horario;
                 String profesor;
-
                 Boolean edit;
 
                 switch (index) {
@@ -125,6 +124,11 @@ public class GrupoListView extends AppCompatActivity {
 
 
                         Intent intent = new Intent(GrupoListView.this, AgregarGrupo.class);
+
+                  /*      Grupo grupo = (Grupo) listview.getItemAtPosition(position);
+                        intent.putExtra("grupo", grupo);*/
+
+
                         intent.putExtra("ciclo", ciclo);
                         intent.putExtra("curso", curso);
                         intent.putExtra("numero", numeroS);
@@ -154,6 +158,9 @@ public class GrupoListView extends AppCompatActivity {
         grupo.setNumero(getIntent().getIntExtra("numero", 0));
         grupo.setHorario(getIntent().getStringExtra("horario"));
         grupo.setProfesor((Profesor) getIntent().getSerializableExtra("profesor"));
+        int position = getIntent().getIntExtra("position", -1);
+        if(position != -1)
+            Data.listaGrupo.remove(position);
         if (grupo.getHorario() != null)
             Data.listaGrupo.add(grupo);
     }
