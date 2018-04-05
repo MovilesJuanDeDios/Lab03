@@ -13,34 +13,28 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
-    <string name="title_activity_navigation">Navigation</string>
+    <string name="title_activity_navigation">Navegación del Sistema</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="title_activity_carrera">Carrera</string>
-    <string name="title_activity_curso">Curso</string>
-    <string name="title_activity_profesor">Profesor</string>
-    <string name="title_activity_alumno">Alumno</string>
-    <string name="title_activity_ciclo">Ciclo</string>
-    <string name="title_activity_grupo">Grupo</string>
+    <string name="title_activity_carrera">Carreras</string>
+    <string name="title_activity_curso">Cursos</string>
+    <string name="title_activity_profesor">Profesores</string>
+    <string name="title_activity_alumno">Alumnos</string>
+    <string name="title_activity_ciclo">Ciclos</string>
+    <string name="title_activity_grupo">Grupos</string>
     <string name="title_activity_usuario">Usuario</string>
 
 
     <color name="black">#990000</color>
-    <string name="title_activity_add_alumno">add_alumno</string>
-    <string name="title_activity_add_carrera">add_carrera</string>
-    <string name="title_activity_add_ciclo">add_ciclo</string>
-    <string name="title_activity_add_curso">add_curso</string>
-    <string name="title_activity_add_grupo">add_grupo</string>
-    <string name="title_activity_add_profesor">add_profesor</string>
-    <string name="title_activity_agregar_alumno">AgregarAlumno</string>
-    <string name="title_activity_agregar_carrera">AgregarCarrera</string>
-    <string name="title_activity_agregar_ciclo">AgregarCiclo</string>
-    <string name="title_activity_agregar_curso">AgregarCurso</string>
-    <string name="title_activity_agregar_grupo">AgregarGrupo</string>
-    <string name="title_activity_agregar_profesor">AgregarProfesor</string>
+    <string name="title_activity_agregar_alumno">Alumno</string>
+    <string name="title_activity_agregar_carrera">Carrera</string>
+    <string name="title_activity_agregar_ciclo">Ciclo</string>
+    <string name="title_activity_agregar_curso">Curso</string>
+    <string name="title_activity_agregar_grupo">Grupo</string>
+    <string name="title_activity_agregar_profesor">Profesor</string>
     <string name="title_activity_pinta_tabla">PintaTabla</string>
     <string name="title_activity_mantenimiento_cursos">MantenimientoCursos</string>
 
