@@ -112,6 +112,7 @@ public class AlumnoListView extends AppCompatActivity {
                 String telefono;
                 String email;
                 String fechaNac;
+                String carrera;
                 Boolean edit;
 
                 switch (index) {
@@ -121,6 +122,7 @@ public class AlumnoListView extends AppCompatActivity {
                         telefono = Data.listaAlumno.get(position).getTelefono();
                         email = Data.listaAlumno.get(position).getEmail();
                         fechaNac = Data.listaAlumno.get(position).getFechaNacimiento();
+                        carrera = Data.listaAlumno.get(position).getCarrera().getNombre();
                         edit = true;
 
                         Intent intent = new Intent(AlumnoListView.this, AgregarAlumno.class);
@@ -133,6 +135,7 @@ public class AlumnoListView extends AppCompatActivity {
                         intent.putExtra("telefono", telefono);
                         intent.putExtra("email", email);
                         intent.putExtra("fechaNac", fechaNac);
+                        intent.putExtra("carrera", carrera);
                         intent.putExtra("edit", edit);
                         intent.putExtra("position", position);
 

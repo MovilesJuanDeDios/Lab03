@@ -40,9 +40,7 @@ public class CarreraListView extends AppCompatActivity {
         setContentView(R.layout.activity_carrera);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         listview = (SwipeMenuListView) findViewById(R.id.lista_carreras);
-
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_carrera);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -67,7 +65,6 @@ public class CarreraListView extends AppCompatActivity {
                 return false;
             }
         });
-
 
         addData();
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Data.listaCarrera);

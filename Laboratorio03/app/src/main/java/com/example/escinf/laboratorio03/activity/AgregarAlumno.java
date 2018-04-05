@@ -126,6 +126,7 @@ public class AgregarAlumno extends AppCompatActivity {
         ((EditText) findViewById(R.id.telefono_alumno)).setText(getIntent().getStringExtra("telefono"));
         ((EditText) findViewById(R.id.email_alumno)).setText(getIntent().getStringExtra("email"));
         ((EditText) findViewById(R.id.fechaNac_alumno)).setText(getIntent().getStringExtra("fechaNac"));
+        ((Spinner)findViewById(R.id.spinner_carrera_alumno)).setSelection(adapterCarrera.getPosition(getIntent().getStringExtra("carrera")));
     }
 
     private boolean validate() {
