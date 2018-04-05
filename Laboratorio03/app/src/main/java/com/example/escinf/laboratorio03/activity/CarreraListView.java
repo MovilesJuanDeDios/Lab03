@@ -101,6 +101,16 @@ public class CarreraListView extends AppCompatActivity {
                 // add to menu
                 menu.addMenuItem(deleteItem);
 
+                SwipeMenuItem editarCursos = new SwipeMenuItem(getApplicationContext());
+                // set item background
+                editarCursos.setBackground(new ColorDrawable(Color.rgb(0x00, 0x00, 0x00)));
+                // set item width
+                editarCursos.setWidth(120);
+                // set a icon
+                editarCursos.setIcon(R.drawable.ic_action_edit_course);
+                // add to menu
+                menu.addMenuItem(editarCursos);
+
             }
         };
 
@@ -134,6 +144,12 @@ public class CarreraListView extends AppCompatActivity {
                         Data.listaCarrera.remove(position);
                         adapter.notifyDataSetChanged();
                         break;
+                    case 2:
+                        Intent intent2 = new Intent(CarreraListView.this, MantenimientoCursos.class);
+                        startActivity(intent2);
+                        finish();
+                        break;
+
                 }
                 // false : close the menu; true : not close the menu
                 return false;

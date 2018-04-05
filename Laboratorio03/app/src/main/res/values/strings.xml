@@ -42,5 +42,6 @@
     <string name="title_activity_agregar_grupo">AgregarGrupo</string>
     <string name="title_activity_agregar_profesor">AgregarProfesor</string>
     <string name="title_activity_pinta_tabla">PintaTabla</string>
+    <string name="title_activity_mantenimiento_cursos">MantenimientoCursos</string>
 
 </resources>
